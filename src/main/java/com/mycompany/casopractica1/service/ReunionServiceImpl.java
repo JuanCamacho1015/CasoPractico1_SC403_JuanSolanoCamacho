@@ -3,7 +3,6 @@ package com.mycompany.casopractica1.service;
 import com.mycompany.casopractica1.domain.Reunion;
 import com.mycompany.casopractica1.repository.ReunionRepository;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;

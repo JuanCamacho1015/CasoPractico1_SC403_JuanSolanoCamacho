@@ -9,6 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+//Controlador Salas, maneja las salas creadas
+
 @Controller
 @RequestMapping("/sala")
 public class SalaController {

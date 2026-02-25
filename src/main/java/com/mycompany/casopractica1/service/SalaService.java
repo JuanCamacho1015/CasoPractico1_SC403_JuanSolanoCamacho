@@ -1,9 +1,9 @@
 package com.mycompany.casopractica1.service;
 
 import com.mycompany.casopractica1.domain.Sala;
-
 import java.util.List;
 import java.util.Optional;
+
 
 public interface SalaService {
     List<Sala> listar();

@@ -1,7 +1,6 @@
 package com.mycompany.casopractica1.repository;
 
 import com.mycompany.casopractica1.domain.Sala;
-
 import java.util.List;
 import java.util.Optional;
 

@@ -2,7 +2,6 @@ package com.mycompany.casopractica1.repository;
 
 import com.mycompany.casopractica1.domain.Reunion;
 import org.springframework.stereotype.Repository;
-
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 

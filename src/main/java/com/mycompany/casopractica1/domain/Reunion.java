@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
+//atributos solicitados en el documento
+
 public class Reunion {
 
     private Long id;

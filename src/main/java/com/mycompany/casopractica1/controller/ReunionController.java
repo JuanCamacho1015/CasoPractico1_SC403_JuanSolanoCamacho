@@ -11,6 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+//Controlador Reunion, maneja las reuniones programadas
+
 @Controller
 @RequestMapping("/reunion")
 public class ReunionController {

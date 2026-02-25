@@ -11,16 +11,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class CasoPractica1Application {
+public class CasoPractica1Application1 {
 
     public static void main(String[] args) {
-        SpringApplication.run(CasoPractica1Application.class, args);
+        SpringApplication.run(CasoPractica1Application1.class, args);
     }
 
     @Bean
     CommandLineRunner cargarDatosIniciales(SalaService salaService, ReunionService reunionService) {
         return args -> {
-            // Evita duplicar si reiniciás con DevTools
+
             if (!salaService.listar().isEmpty() || !reunionService.listar().isEmpty()) {
                 return;
             }
@@ -29,9 +29,9 @@ public class CasoPractica1Application {
             Sala s1 = new Sala();
             s1.setNombre("Sala Tamarindo");
             s1.setCapacidad(10);
-            s1 = salaService.guardar(s1); // devuelve con ID
+            s1 = salaService.guardar(s1);
 
-            // 2) Reunión: revisión de apps, 28/02/2026 13:00, asociada a esa sala
+            // 2) Reunión: revisión de apps, 28/02/2026 13:00, asociada a Tasmarindo
             Reunion r1 = new Reunion();
             r1.setTitulo("Revisión de apps");
             r1.setFecha(LocalDate.of(2026, 2, 28));

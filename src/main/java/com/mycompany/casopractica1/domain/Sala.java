@@ -3,6 +3,8 @@ package com.mycompany.casopractica1.domain;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
+//atributos solicitados en el documento
+
 public class Sala {
 
     private Long id;

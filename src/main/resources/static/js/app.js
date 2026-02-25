@@ -13,3 +13,5 @@ document.addEventListener("DOMContentLoaded", () => {
     if (nombreSpan) nombreSpan.textContent = nombre || "";
   });
 });
+
+

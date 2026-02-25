@@ -1,7 +1,6 @@
 package com.mycompany.casopractica1.service;
 
 import com.mycompany.casopractica1.domain.Reunion;
-
 import java.util.List;
 import java.util.Optional;
 
