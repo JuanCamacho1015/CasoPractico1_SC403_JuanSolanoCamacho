@@ -1,20 +1,4 @@
-# CasoPráctica1 - MeetingPlanner CR (Starter con estructura NetBeans)
+CasoPractico1\_SC403\_JuanSolanoCamacho
+CasoPractico1
+Aplicación corriendo en el puerto 8080, debido a un conflicto con otros servicios en mi ordenador
 
-Paquete base: `com.mycompany.casopractica1`
-
-Estructura (como en tu screenshot):
-- `com.mycompany.casopractica1`
-- `com.mycompany.casopractica1.controller`
-- `com.mycompany.casopractica1.domain`
-- `com.mycompany.casopractica1.repository`
-- `com.mycompany.casopractica1.service`
-
-Incluye vistas Thymeleaf con Bootstrap, modal de eliminación (UI) y rutas.
-Los métodos de negocio en Service están con `TODO` para que completes.
-
-## Run
-```bash
-mvn spring-boot:run
-```
-- http://localhost:8080/sala/listado
-- http://localhost:8080/reunion/listado
