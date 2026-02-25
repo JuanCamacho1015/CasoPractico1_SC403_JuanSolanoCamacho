@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{general/fragmentos :: head('Formulario Reunión')}"></head>
+<body>
+<div th:replace="~{general/fragmentos :: navbar}"></div>
+<div th:replace="~{general/fragmentos :: mensajes}"></div>
+
+<main class="container py-4">
+  <div class="alert alert-warning" th:if="${#lists.isEmpty(salas)}">
+  No hay salas registradas. Para crear una reunión, primero debe registrar una sala.
+  <a class="alert-link" th:href="@{/sala/nuevo}">Crear sala ahora</a>
+</div>
+<h1 class="h3 mb-3" th:text="${modo == 'editar'} ? 'Editar Reunión' : 'Nueva Reunión'"></h1>
+
+  <div class="card">
+    <div class="card-body">
+      <form th:object="${reunion}"
+            th:action="${modo == 'editar'} ? @{|/reunion/actualizar/${reunion.id}|} : @{/reunion/guardar}"
+            method="post"
+            class="row g-3">
+
+        <div class="col-md-6">
+          <label class="form-label">Título</label>
+          <input class="form-control" type="text" th:field="*{titulo}">
+          <div class="text-danger small" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Fecha</label>
+          <input class="form-control" type="date" th:field="*{fecha}">
+          <div class="text-danger small" th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></div>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Hora</label>
+          <input class="form-control" type="text" placeholder="Ej: 14:30" th:field="*{hora}">
+          <div class="text-danger small" th:if="${#fields.hasErrors('hora')}" th:errors="*{hora}"></div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Sala</label>
+          <select class="form-select" th:field="*{salaId}">
+            <option value="" selected disabled>Seleccione...</option>
+            <option th:each="s : ${salas}" th:value="${s.id}" th:text="${s.nombre}"></option>
+          </select>
+          <div class="text-danger small" th:if="${#fields.hasErrors('salaId')}" th:errors="*{salaId}"></div>
+        </div>
+
+        <div class="col-12 d-flex gap-2">
+          <button class="btn btn-primary" type="submit">Guardar</button>
+          <a class="btn btn-outline-secondary" th:href="@{/reunion/listado}">Volver</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<div th:replace="~{general/fragmentos :: scripts}"></div>
+</body>
+</html>

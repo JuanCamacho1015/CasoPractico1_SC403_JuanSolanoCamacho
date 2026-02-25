@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{general/fragmentos :: head('Formulario Sala')}"></head>
+<body>
+<div th:replace="~{general/fragmentos :: navbar}"></div>
+<div th:replace="~{general/fragmentos :: mensajes}"></div>
+
+<main class="container py-4">
+  <h1 class="h3 mb-3" th:text="${modo == 'editar'} ? 'Editar Sala' : 'Nueva Sala'"></h1>
+
+  <div class="card">
+    <div class="card-body">
+      <form th:object="${sala}"
+            th:action="${modo == 'editar'} ? @{|/sala/actualizar/${sala.id}|} : @{/sala/guardar}"
+            method="post"
+            class="row g-3">
+
+        <div class="col-md-8">
+          <label class="form-label">Nombre</label>
+          <input class="form-control" type="text" th:field="*{nombre}" placeholder="Ej: Sala Principal">
+          <div class="text-danger small" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Capacidad</label>
+          <input class="form-control" type="number" min="1" th:field="*{capacidad}">
+          <div class="text-danger small" th:if="${#fields.hasErrors('capacidad')}" th:errors="*{capacidad}"></div>
+        </div>
+
+        <div class="col-12 d-flex gap-2">
+          <button class="btn btn-primary" type="submit">Guardar</button>
+          <a class="btn btn-outline-secondary" th:href="@{/sala/listado}">Volver</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<div th:replace="~{general/fragmentos :: scripts}"></div>
+</body>
+</html>

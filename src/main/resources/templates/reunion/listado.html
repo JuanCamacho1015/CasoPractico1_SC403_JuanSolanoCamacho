@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{general/fragmentos :: head('Listado de Reuniones')}"></head>
+<body>
+<div th:replace="~{general/fragmentos :: navbar}"></div>
+<div th:replace="~{general/fragmentos :: mensajes}"></div>
+
+<main class="container pb-4">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h1 class="h3 m-0">Gestión de Reuniones</h1>
+    <a class="btn btn-primary" th:href="@{/reunion/nuevo}">+ Nueva Reunión</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Título</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Sala</th>
+            <th class="text-end">Acciones</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="r : ${reuniones}">
+            <td th:text="${r.id}"></td>
+            <td th:text="${r.titulo}"></td>
+            <td th:text="${r.fecha}"></td>
+            <td th:text="${r.hora}"></td>
+            <td>
+              <span th:each="s : ${salas}" th:if="${s.id == r.salaId}" th:text="${s.nombre}"></span>
+            </td>
+            <td class="text-end">
+              <a class="btn btn-sm btn-outline-secondary" th:href="@{|/reunion/editar/${r.id}|}">Editar</a>
+              <form th:action="@{|/reunion/eliminar/${r.id}|}" method="post" class="d-inline">
+                <button class="btn btn-sm btn-outline-danger" type="submit">Eliminar</button>
+              </form>
+            </td>
+          </tr>
+
+          <tr th:if="${#lists.isEmpty(reuniones)}">
+            <td colspan="6" class="text-center text-muted py-4">No hay reuniones registradas.</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div th:replace="~{general/fragmentos :: scripts}"></div>
+</body>
+</html>
